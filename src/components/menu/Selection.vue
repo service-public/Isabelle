@@ -1,6 +1,6 @@
 <template>
   <div class="selection">
-    <Card v-for="feature in features" :feature="feature" :key="feature.key"/>
+    <Card v-for="feature in features" :feature="feature" :key="feature.key" @selection="selection"/>
   </div>
 </template>
 
@@ -18,21 +18,26 @@ export default {
     return {
       features: [
         {
-          key: 0,
+          key: 1,
           name: "EDT",
           icon: "fa-calendar-alt"
         },
         {
-          key: 1,
+          key: 2,
           name: "Cours",
           icon: "fa-pen-nib"
         },
         {
-          key: 2,
+          key: 3,
           name: "Notes",
           icon: "fa-file-medical-alt"
         },
       ]
+    }
+  },
+  methods:{
+    selection: function(view){
+      this.$emit("selection", view);
     }
   }
 }
@@ -42,5 +47,9 @@ export default {
   .selection{
     display: flex;
     flex-direction: row;
+
+    justify-content: center;
+
+    padding-top: 10vh;
   }
 </style>

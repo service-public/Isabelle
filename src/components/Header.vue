@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item brand-text">
+        <a class="navbar-item brand-text" @click="backToMenu">
             <i class="fas fa-caret-left "></i> &nbsp;
             <h1>ISABELLE</h1>&nbsp;
             <img src="../assets/logo.png" alt="">
@@ -25,6 +25,11 @@ export default {
     return {
     }
   },
+  methods: {
+    backToMenu: function(){
+      this.$emit("backToMenu", 0);
+    }
+  }
 }
 </script>
 

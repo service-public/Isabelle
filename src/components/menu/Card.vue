@@ -1,5 +1,5 @@
 <template>
-  <div class="card box button">
+  <div class="card box button" @click="goTo">
     <h1> {{ feature.name.toUpperCase() }} </h1>
     <i class="fas" :class="feature.icon"></i>
   </div>
@@ -12,7 +12,12 @@ export default {
   },
   props: [
     'feature'
-  ]
+  ],
+  methods: {
+    goTo: function(){
+      this.$emit("selection", this.feature.key)
+    }
+  }
 }
 </script>
 
@@ -26,6 +31,14 @@ export default {
     max-width: 10%;
     min-height: 250px;
     max-height: 20vh;
+
+    padding-top: 3vh;
+    margin: 20px;
+  }
+
+  i{
+    margin-top: 7vh;
+    font-size: 50px;
   }
 
 </style>
